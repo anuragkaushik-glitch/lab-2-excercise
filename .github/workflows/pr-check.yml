@@ -1,0 +1,23 @@
+name: Accountant Review
+
+on: pull_request
+
+jobs:
+  check-math:
+    name: Verify Ingredient Cost
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout PR Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Run Cost Calculation Tests
+        run: npm test cost.test.js
