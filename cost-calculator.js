@@ -5,9 +5,9 @@ function calculateCost(servings) {
   
   // TODO: The Intern needs to fix this formula!
   // It currently returns 0, which is bad business!
-  const totalCost = 0; 
+ 
   
-  return totalCost;
+  return servings*pricePerPlate;
 }
 
 module.exports = calculateCost;
