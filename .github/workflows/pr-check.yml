@@ -21,3 +21,23 @@ jobs:
 
       - name: Run Cost Calculation Tests
         run: npm test cost.test.js
+  
+  check-delivery:
+    name: Verify Delivery Process
+    runs-on: ubuntu-latest
+    needs: check-math
+
+    steps:
+      - name: Checkout PR Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Run Delivery Tests
+        run: npm run test
